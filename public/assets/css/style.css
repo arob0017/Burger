@@ -1,0 +1,35 @@
+/* sticky footer */
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.content:not(:last-child) {
+    margin-bottom: 0px;
+}
+.push {
+    height: 50px;
+}
+footer {
+    flex-shrink: 0;
+}
+
+header {
+    text-align: center;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+*, ::after, ::before {
+    /* box-sizing: inherit; */
+    box-sizing: revert;
+}

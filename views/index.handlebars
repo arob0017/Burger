@@ -1,38 +1,47 @@
-<h1>Burgers!</h1>
+{{> header}}
+<div class="container is-fluid has-background-info-light" class="content">
+    <div>
+        <h2 class="is-size-4">Add a Burger</h2>
+        <form id="createBurger">
 
-<h2>Eat me!</h2>
+            <div class="form-group">
+                <label for="burgername">Burger Name:</label>
+                <input type="text" id="burgerName" class="burger-name" name="name">
+            </div>
 
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burger-block devoured=true}}
-    {{/unless}}
-    {{/each}}
-</ul>
+            <div class="form-group">
+                <label for="">Inhaled or to eat?</label><br>
+                <input type="radio" name="devoured" value="1" checked> To eat!<br>
+                <input type="radio" name="devoured" value="0"> Inhaled
+            </div>
 
-<h2>Devoured!</h2>
+            <button class="button is-info" id="burgerAdd" type="submit">Add Burger</button>
+        </form>
+    </div><br><br>
+    <div class="columns">
+        <div class="column">
+            <h2 class="is-size-4">Eat me!</h2>
 
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    {{> burger-block devoured=false}}
-    {{/if}}
-    {{/each}}
-</ul>
+            <ul>
+                {{#each burger}}
+                {{#unless devoured}}
+                {{> burger-block devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="column">
+            <h2 class="is-size-4">Devoured!</h2>
 
-<h2>Add a Burger</h2>
-<form class="create-burger">
-
-    <div class="form-group">
-        <label for="burgername">Burger Name:</label>
-        <input type="text" id="burgerName" class="burger-name" name="name">
+            <ul>
+                {{#each burger}}
+                {{#if devoured}}
+                {{> burger-block devoured=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="">Devoured?</label><br>
-        <input type="radio" name="devoured" value="1" checked> To eat!<br>
-        <input type="radio" name="devoured" value="0"> Devoured
-    </div>
-
-    <button class="burgerAdd" type="submit">Add Burger</button>
-</form>
+    <div class="push"></div>
+</div>
+{{> footer}}
